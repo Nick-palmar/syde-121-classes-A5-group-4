@@ -18,6 +18,8 @@ public:
     void print();
     bool insert_book(Book new_book);
     bool insert_book(string new_title, string new_authors, string new_dop);
+    bool remove_book(Book new_book);
+    bool remove_book(string new_title, string new_authors, string new_dop);
 
 };
 #endif
