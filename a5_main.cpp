@@ -115,11 +115,75 @@ void test_insertion() {
     check_insertion_list(insert_list);
 }
 
+void check_removal_list(vector<bool> remove_list) {
+    // check removals to see which have failed
+    for (int i = 0; i < remove_list.size(); i++) {
+        // output to console
+        cout << "Removal " << (i + 1) << ": " << (remove_list[i] ? "true" : "false") << endl;
+    }
+
+    cout << endl;
+}
+
+void test_removal() {
+    // define an remove list vector
+    vector<bool> remove_list;
+    // create 4 books with each constructor
+    Book b1;
+    Book b2("Hamlet");
+    Book b3("Maze Runner", "James Dashner");
+    Book b4("I'm number 4", "Pittacus Lore", "January 4th 2015");
+
+    Book b5("Hunger Games", "Suzan Collins", "January 4th 2015");
+    Book b6("I, Robot", "Isaac asimov", "July 7th 2007");
+    Book b7("The Rule of 3", "Eric Walters", "November 7th 2002");
+
+    Book b8("Catching Fire", "Suzan Collins", "January 4th 2015");
+
+    // create 2 libraries
+    Library lib1;
+    
+    // insert a book
+    lib1.insert_book(b8);
+    lib1.insert_book(b2);
+    lib1.insert_book(b5);
+    lib1.insert_book(b1);
+
+    // check values
+    cout << "CHECK 1" << endl;
+    lib1.print();
+
+    // remove good books
+    remove_list.push_back(lib1.remove_book(b2));
+    remove_list.push_back(lib1.remove_book(b1));
+
+    // remove book not in library
+    remove_list.push_back(lib1.remove_book(b7));
+
+    // check values
+    cout << "CHECK 2" << endl;
+    lib1.print();
+
+    // check removals to see which have failed
+    check_removal_list(remove_list);
+
+    // check removals usings strings as parameters
+    remove_list.push_back(lib1.remove_book("Hunger Games", "Suzan Collins", "January 4th 2015"));
+    remove_list.push_back(lib1.remove_book("I'm number 4", "Pittacus Lore", "January 4th 2015"));
+
+    // check values
+    cout << "CHECK 3" << endl;
+    lib1.print();
+
+    // check removals to see which have failed
+    check_removal_list(remove_list);
+}
 
 int main()
 {
     /*test_book_constructor();*/
     /*test_library_constructor();*/
     test_insertion();
+    test_removal();
 }
 
