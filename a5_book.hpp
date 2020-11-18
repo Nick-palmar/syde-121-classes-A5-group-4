@@ -8,8 +8,8 @@ class Book {
 	// attributes
 	string title, authors, dop;
 
-// public methods of book class
-public: 
+	// public methods of book class
+public:
 	// constructors
 	Book();
 	Book(string new_title);
@@ -21,6 +21,11 @@ public:
 	//             new_dop - string referring to the date of publication (if applicable)
 	//     OUTPUTS: none; constructors
 
+	// getters
+	string get_book_title();
+	string get_book_authors();
+	string get_book_dop();
+
 	// service methods
 	void print();
 	// PURPOSE: output the title, author names, and date of publication to the console
@@ -29,3 +34,4 @@ public:
 
 };
 #endif
+
