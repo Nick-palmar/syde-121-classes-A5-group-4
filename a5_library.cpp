@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-Library::Library() : book_list(1) {}
+Library::Library() {}
 
 Library::Library(vector<Book> new_book_list) :
     book_list(new_book_list.begin(), new_book_list.end()) {
