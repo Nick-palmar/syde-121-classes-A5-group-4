@@ -7,6 +7,36 @@
 #include <vector>
 using namespace std;
 
+void test_book_constructor();
+// PURPOSE: Creates book objects with the four different constructors
+//     INPUTS: nothing
+//     OUTPUTS: nothing
+
+void test_library_constructor();
+// PURPOSE: Creates libraries to contain a vector of book objects
+//     INPUTS: nothing
+//     OUTPUTS: nothing
+
+void check_insertion_list(vector<bool> insert_list);
+// PURPOSE: Checks if the insertion of the books completed or failed
+//     INPUTS: insert_list - a vector containing all the books that are being attempted to insert
+//     OUTPUTS: nothing; output is to console
+
+void test_insertion();
+// PURPOSE: Tests the insertion of book objects, books with string values, and repeated books
+//     INPUTS: nothing
+//     OUTPUTS: nothing
+
+void check_removal_list(vector<bool> remove_list);
+// PURPOSE: Checks if the removal of the books completed or failed
+//     INPUTS: insert_list - a vector containing all the books that are being attempted to remove
+//     OUTPUTS: nothing; output is to console
+
+void test_removal();
+// PURPOSE: Tests the removal of book objects, books with string values, and books that are not in the library
+//     INPUTS: nothing
+//     OUTPUTS: nothing
+
 void test_book_constructor() {
     // create 4 books with each constructor
     Book b1;
