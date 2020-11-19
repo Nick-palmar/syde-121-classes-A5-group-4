@@ -1,3 +1,19 @@
+//***********************************************************
+// Student Names: Nicolas Palmar and Kevin Wang
+// Student Number: 
+//
+// SYDE 121 Lab: Home Assignment: 5
+// Filename: a5_library
+// We hereby declare that this code, submitted for credit for the course
+// SYDE121, is a product of my own efforts.  This coded solution has
+// not been plagiarized from other sources and has not been knowingly
+// plagiarized by others
+//
+// Project: Book and Library Classes
+// Purpose: Creates a Library class that contains a vector of Book instances
+// Due Date: Friday, November 20, 2020
+//**************************************************************
+
 #include "a5_library.hpp"
 #include <iostream>
 using namespace std;
