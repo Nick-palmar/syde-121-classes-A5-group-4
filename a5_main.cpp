@@ -1,5 +1,18 @@
-// a5_main.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//***********************************************************
+// Student Names: Nicolas Palmar and Kevin Wang
+// Student Number: 
 //
+// SYDE 121 Lab: Home Assignment: 5
+// Filename: a5_main
+// We hereby declare that this code, submitted for credit for the course
+// SYDE121, is a product of my own efforts.  This coded solution has
+// not been plagiarized from other sources and has not been knowingly
+// plagiarized by others
+//
+// Project: Book and Library Classes
+// Purpose: Create a library that contains several books
+// Due Date: Friday, November 20, 2020
+//**************************************************************
 
 #include <iostream>
 #include "a5_book.hpp"
