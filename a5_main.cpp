@@ -1,9 +1,9 @@
 //***********************************************************
 // Student Names: Nicolas Palmar and Kevin Wang
-// Student Number:
+// Student Number: 20883350 and 20886511
 //
-// SYDE 121 Lab: Home Assignment: 5
-// Filename: a5_main
+// SYDE 121 Lab: Classes, OO Design Assignment: 5
+// Filename: a5_main.cpp
 // We hereby declare that this code, submitted for credit for the course
 // SYDE121, is a product of my own efforts.  This coded solution has
 // not been plagiarized from other sources and has not been knowingly
@@ -14,6 +14,33 @@
 // Due Date: Friday, November 20, 2020
 //**************************************************************
 
+/*
+Testing scanerios:
+
+In the main function we are running 8 tests, each which have been explained in the purpose below.
+
+Here is a quick recap of the functions
+1. Check all the different book constructors
+2. Check all the different library constructors
+3. Check simple book insertion using book objects
+4. Check simple book insertion using strings (overloaded method)
+5. Check repeated book insertion, including checking correct or incorrect insertion
+6. Check simple book removal using book objects
+7. Check simple book removal using strings (overloaded method)
+8. Check non-existant book removal, including checking correct or incorrect removal
+
+With these 8 test functions, every possible aspect of the program has been tested.
+
+Limitations:
+One limitation of this library inverntory system is that it cannot take repeated books; it will only allow for single insertions.
+A real library may have multiple copies of the same book, but this library only allows for single copies and cannot keep track of multiple instances. 
+
+Same thing for book removal; this library can only remove a whole book rather than removing a copy from the overall inventory.
+
+There is also no way to keep track of who has a book, or when a book was removed. This could be valuable information for a library, because ideally 
+people will return books to the library and the library will know who has it's books and when they were taken out. 
+*/
+
 #include <iostream>
 #include "a5_book.hpp"
 #include "a5_library.hpp"
@@ -22,13 +49,9 @@ using namespace std;
 
 void test_book_constructor();
 // PURPOSE: Creates book objects with the four different constructors
-//     INPUTS: nothing
-//     OUTPUTS: nothing
 
 void test_library_constructor();
 // PURPOSE: Creates libraries to contain a vector of book objects
-//     INPUTS: nothing
-//     OUTPUTS: nothing
 
 void check_insertion_list(vector<bool> insert_list);
 // PURPOSE: Checks if the insertion of the books completed or failed
@@ -37,18 +60,12 @@ void check_insertion_list(vector<bool> insert_list);
 
 void test_book_insertion();
 // PURPOSE: Tests simple insertion of book objects into a library
-//     INPUTS: nothing
-//     OUTPUTS: nothing
 
 void test_book_string_insertion();
 // PURPOSE: Tests simple insertion using string values (title, author, dop) for a book into a library
-//     INPUTS: nothing
-//     OUTPUTS: nothing
 
 void test_repeated_insertion();
 // PURPOSE: Tests the insertion of repeated book objects and string values into a library and checks for correct/invalid insertion
-//     INPUTS: nothing
-//     OUTPUTS: nothing
 
 void check_removal_list(vector<bool> remove_list);
 // PURPOSE: Checks if the removal of the books completed or failed
@@ -57,18 +74,12 @@ void check_removal_list(vector<bool> remove_list);
 
 void test_book_removal();
 // PURPOSE: Tests simple removal of book objects from a library
-//     INPUTS: nothing
-//     OUTPUTS: nothing
 
 void test_book_string_removal();
 // PURPOSE: Tests simple removal using string values (title, author, dop) for a book from a library
-//     INPUTS: nothing
-//     OUTPUTS: nothing
 
 void test_nonexistant_removal();
 // PURPOSE: Tests the removal of book objects and string values that are not found in the library and checks for correct/invalid removals
-//     INPUTS: nothing
-//     OUTPUTS: nothing
 
 void test_book_constructor() {
     // create 4 books with each constructor
@@ -88,7 +99,6 @@ void test_book_constructor() {
     book_4.print();
 }
 
-
 void check_insertion_list(vector<bool> insert_list) {
     // check insertions to see which have failed
     for (int i = 0; i < insert_list.size(); i++) {
@@ -97,7 +107,6 @@ void check_insertion_list(vector<bool> insert_list) {
     }
     cout << endl;
 }
-
 
 void test_library_constructor() {
     // create books with each constructor
@@ -170,7 +179,7 @@ void test_book_string_insertion() {
 
     // insert into a different library
     lib_2.insert_book("Eyes of Minds", "James Dashner", "November 3 2009");
-    
+
     // check values
     cout << "BOOK STRING INSERTION CHECK 2: Should print \"Eyes of Minds\"" << endl;
     lib_2.print();
@@ -249,21 +258,21 @@ void test_book_removal() {
     Book book_2("Hamlet");
     Book book_3("Maze Runner", "James Dashner");
     Book book_4("I'm Number 4", "Pittacus Lore", "January 4th 2015");
-    
+
     // create a book vector
     vector<Book> book_list = { book_1, book_2, book_3, book_4 };
-    
+
     // create 1 library containing the books
     Library lib_1(book_list);
-    
+
     // check values
     cout << "BOOK OBJECT REMOVAL CHECK 1: Should print book 1-4 (no info, \"Hamlet\", \"Maze Runner\", \"I'm Number 4\")" << endl;
     lib_1.print();
-    
+
     // remove books
     lib_1.remove_book(book_1);
     lib_1.remove_book(book_2);
-    
+
     // check values
     cout << "BOOK OBJECT REMOVAL CHECK 2: Should print books 3-4 (\"Maze Runner\", \"I'm Number 4\")" << endl;
     lib_1.print();
@@ -275,35 +284,36 @@ void test_book_string_removal() {
     Book book_6("I, Robot", "Isaac Asimov", "July 7th 2007");
     Book book_7("The Rule of 3", "Eric Walters", "November 7th 2002");
     Book book_8("Catching Fire", "Suzan Collins", "January 4th 2015");
-    
+
     // create 2 book vectors
     vector<Book> book_list1 = { book_5, book_6 };
     vector<Book> book_list2 = { book_7, book_8 };
-    
+
     // create 2 libraries
     Library lib_1(book_list1);
     Library lib_2(book_list2);
-    
+
     // remove books as strings from the library
     lib_1.remove_book("Hunger Games", "Suzan Collins", "January 4th 2015");
     lib_1.remove_book("I, Robot", "Isaac Asimov", "July 7th 2007");
-    
+
     // check values
     cout << "BOOK STRING REMOVAL CHECK 1: Should print nothing" << endl;
     lib_1.print();
     cout << "\n";
-    
+
     // remove books as string from a different library
     lib_2.remove_book("The Rule of 3", "Eric Walters", "November 7th 2002");
-    
+
     // check values
     cout << "BOOK STRING REMOVAL CHECK 2: Should print \"Catching Fire\"" << endl;
     lib_2.print();
 }
+
 void test_nonexistant_removal() {
     // define a remove list vector
     vector<bool> remove_list;
-    
+
     // create books
     Book book_1;
     Book book_2("Hamlet");
@@ -313,10 +323,10 @@ void test_nonexistant_removal() {
     Book book_6("I, Robot", "Isaac Asimov", "July 7th 2007");
     Book book_7("The Rule of 3", "Eric Walters", "November 7th 2002");
     Book book_8("Catching Fire", "Suzan Collins", "January 4th 2015");
-    
+
     // create a book vector
     vector<Book> book_list = { book_3, book_4, book_5, book_6, book_7, book_8 };
-    
+
     // create 1 library
     Library lib_1(book_list);
 
@@ -330,7 +340,7 @@ void test_nonexistant_removal() {
     // check removals to see which have failed
     cout << "NONEXISTANT BOOK REMOVAL CHECK 1 (continued): Should return true for all removals" << endl;
     check_removal_list(remove_list);
-    
+
     // remove 2 books not in the library
     remove_list.push_back(lib_1.remove_book(book_1));
     remove_list.push_back(lib_1.remove_book(book_2));
@@ -343,12 +353,12 @@ void test_nonexistant_removal() {
     // check removals to see which have failed
     cout << "NONEXISTANT BOOK REMOVAL CHECK 2 (continued): Should return true for removals 1-2, false for 3-4, true for 5" << endl;
     check_removal_list(remove_list);
-    
+
     // remove a books as a string that is not in the library
     remove_list.push_back(lib_1.remove_book("Eyes of Minds", "James Dashner", "November 3 2009"));
     // remove a book as a string that is in the library
     remove_list.push_back(lib_1.remove_book("Maze Runner", "James Dashner", "n/a"));
-    
+
     // check values
     cout << "NONEXISTANT BOOK REMOVAL CHECK 3: Should print books 4-5 (\"I'm Number 4\", \"Hunger Games\")" << endl;
     lib_1.print();
