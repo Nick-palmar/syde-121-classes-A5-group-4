@@ -1,29 +1,32 @@
 //***********************************************************
 // Student Names: Nicolas Palmar and Kevin Wang
-// Student Number: 
+// Student Number: 20883350 and 20886511
 //
-// SYDE 121 Lab: Home Assignment: 5
-// Filename: a5_library
+// SYDE 121 Lab: Classes, OO Design Assignment: 5
+// Filename: a5_library.cpp
 // We hereby declare that this code, submitted for credit for the course
 // SYDE121, is a product of my own efforts.  This coded solution has
 // not been plagiarized from other sources and has not been knowingly
 // plagiarized by others
 //
 // Project: Book and Library Classes
-// Purpose: Creates a Library class that contains a vector of Book instances
+// Purpose: Define methods for the library class to create libraries, and show, insert, and remove books
 // Due Date: Friday, November 20, 2020
 //**************************************************************
 
 #include "a5_library.hpp"
 #include <iostream>
+#include <vector>
 using namespace std;
 
+// library constructor definitions
 Library::Library() {}
 
 Library::Library(vector<Book> new_book_list) :
     book_list(new_book_list.begin(), new_book_list.end()) {
 }
 
+// method to print all the books in the library
 void Library::print() {
     // loop through all books
     for (int index = 0; index < book_list.size(); index++) {
@@ -33,6 +36,7 @@ void Library::print() {
 
 }
 
+// book insertion methods
 bool Library::insert_book(Book new_book) {
     // declare and initialize variables
     bool same_authors, same_title, same_dop;
@@ -82,6 +86,7 @@ bool Library::insert_book(string new_title, string new_authors, string new_dop) 
 
 }
 
+// book removal methods
 bool Library::remove_book(Book searched_book) {
     // declare and initialize variables
     int index = 0;
@@ -99,7 +104,7 @@ bool Library::remove_book(Book searched_book) {
             book_list.erase(book_list.begin() + index);
             return true;
         }
-        index ++;
+        index++;
     }
 
     // the searched book for removal is not in the library; return false
@@ -127,7 +132,7 @@ bool Library::remove_book(string searched_title, string searched_authors, string
             book_list.erase(book_list.begin() + index);
             return true;
         }
-        index ++;
+        index++;
     }
 
     // the searched book for removal is not in the library; return false
