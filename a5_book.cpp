@@ -1,16 +1,16 @@
 //***********************************************************
 // Student Names: Nicolas Palmar and Kevin Wang
-// Student Number: 
+// Student Number: 20883350 and 20886511
 //
-// SYDE 121 Lab: Home Assignment: 5
-// Filename: a5_book
+// SYDE 121 Lab: Classes, OO Design Assignment: 5
+// Filename: a5_books.cpp
 // We hereby declare that this code, submitted for credit for the course
 // SYDE121, is a product of my own efforts.  This coded solution has
 // not been plagiarized from other sources and has not been knowingly
 // plagiarized by others
 //
 // Project: Book and Library Classes
-// Purpose: Creates a Book class that stores individual books
+// Purpose: Define methods for the book class to create, store, and show books
 // Due Date: Friday, November 20, 2020
 //**************************************************************
 
@@ -45,7 +45,7 @@ string Book::get_book_dop() {
 }
 
 
-// book service method definition
+// book print service method definition
 void Book::print() {
     // output the book info to console
     cout << "The book title is: " << title << endl;
