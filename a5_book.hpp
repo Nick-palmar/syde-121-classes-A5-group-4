@@ -1,14 +1,30 @@
-#ifndef BOOKS
-#define BOOKS
+//***********************************************************
+// Student Names: Nicolas Palmar and Kevin Wang
+// Student Number: 20883350 and 20886511
+//
+// SYDE 121 Lab: Classes, OO Design Assignment: 5
+// Filename: a5_books.hpp
+// We hereby declare that this code, submitted for credit for the course
+// SYDE121, is a product of my own efforts.  This coded solution has
+// not been plagiarized from other sources and has not been knowingly
+// plagiarized by others
+//
+// Project: Book and Library Classes
+// Purpose: Declare methods for the book class to create, store, and show books
+// Due Date: Friday, November 20, 2020
+//**************************************************************
+
+#ifndef A5_BOOKS_HPP
+#define A5_BOOKS_HPP
 #include <string>
 using namespace std;
 
 // PURPOSE: Models a book for reading
 class Book {
-	// attributes
-	string title, authors, dop;
+    // attributes
+    string title, authors, dop;
 
-	// public methods of book class
+    // public methods of book class
 public:
     // constructors
     Book();
@@ -26,12 +42,12 @@ public:
     // PURPOSE: gets the book title value
     //      INPUTS: nothing
     //      OUTPUTS: title - string referring to the title of the book object
-    
+
     string get_book_authors();
     // PURPOSE: gets the book authors value
     //      INPUTS: nothing
     //      OUTPUTS: authors - string referring to the authors of the book object
-    
+
     string get_book_dop();
     // PURPOSE: gets the book date of publication value
     //      INPUTS: nothing
