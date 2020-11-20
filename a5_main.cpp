@@ -1,6 +1,6 @@
 //***********************************************************
 // Student Names: Nicolas Palmar and Kevin Wang
-// Student Number: 
+// Student Number:
 //
 // SYDE 121 Lab: Home Assignment: 5
 // Filename: a5_main
@@ -10,7 +10,7 @@
 // plagiarized by others
 //
 // Project: Book and Library Classes
-// Purpose: Create a library that contains several books, and can insert, remove, or display books 
+// Purpose: Create a library that contains several books, and can insert, remove, or display books
 // Due Date: Friday, November 20, 2020
 //**************************************************************
 
@@ -46,7 +46,7 @@ void test_book_string_insertion();
 //     OUTPUTS: nothing
 
 void test_repeated_insertion();
-// PURPOSE: Tests the insertion of repeated book objects and string values into a library and checks for correct/invalid insertion 
+// PURPOSE: Tests the insertion of repeated book objects and string values into a library and checks for correct/invalid insertion
 //     INPUTS: nothing
 //     OUTPUTS: nothing
 
@@ -55,8 +55,18 @@ void check_removal_list(vector<bool> remove_list);
 //     INPUTS: insert_list - a vector containing all the books that are being attempted to remove
 //     OUTPUTS: nothing; output is to console
 
-void test_removal();
-// PURPOSE: Tests the removal of book objects, books with string values, and books that are not in the library
+void test_book_removal();
+// PURPOSE: Tests simple removal of book objects from a library
+//     INPUTS: nothing
+//     OUTPUTS: nothing
+
+void test_book_string_removal();
+// PURPOSE: Tests simple removal using string values (title, author, dop) for a book from a library
+//     INPUTS: nothing
+//     OUTPUTS: nothing
+
+void test_nonexistant_removal();
+// PURPOSE: Tests the removal of book objects and string values that are not found in the library and checks for correct/invalid removals
 //     INPUTS: nothing
 //     OUTPUTS: nothing
 
@@ -68,10 +78,13 @@ void test_book_constructor() {
     Book book_4("I'm Number 4", "Pittacus Lore", "January 4th 2015");
 
     // call book service method to check values
-    cout << "CHECK 1: Should print book 1 (no info), book 2 (Hamlet, no author, no dop), book 3 (Maze Runner, James Dashner, no dop), and book 4 (I'm Number 4, Pittacus Lore, January 4th 2015)" << endl;
+    cout << "BOOK CHECK 1: Should print book 1 (no info)" << endl;
     book_1.print();
+    cout << "BOOK CHECK 2: Should print book 2 (\"Hamlet\")" << endl;
     book_2.print();
+    cout << "BOOK CHECK 3: Should print book 3 (\"Maze Runner\")" << endl;
     book_3.print();
+    cout << "BOOK CHECK 4: Should print book 4 (\"I'm Number 4\")" << endl;
     book_4.print();
 }
 
@@ -106,9 +119,12 @@ void test_library_constructor() {
     Library lib_3(book_list_2);
 
     // call library service method to check values
-    cout << "CHECK 1: lib_1 -> empty (prints nothing), lib_2 -> prints (book_1 -> book_4), lib_3 -> prints (book_5 -> book_7) " << endl;
+    cout << "LIBRARY CHECK 1: Should print nothing" << endl;
     lib_1.print();
+    cout << "\n";
+    cout << "LIBRARY CHECK 2: Should print books 1-4 (no info, \"Hamlet\", \"Maze Runner\", \"I'm Number 4\")" << endl;
     lib_2.print();
+    cout << "LIBRARY CHECK 3: Should print books 5-7 (\"Hunger Games\", \"I, Robot\", \"The Rule of 3\")" << endl;
     lib_3.print();
 }
 
@@ -127,7 +143,7 @@ void test_book_insertion() {
     lib_1.insert_book(book_2);
 
     // check values
-    cout << "BOOK OBJECT INSERTION CHECK 1: Should print book 1 (no info) and book 2 (Hamlet)" << endl;
+    cout << "BOOK OBJECT INSERTION CHECK 1: Should print books 1-2 (no info, \"Hamlet\")" << endl;
     lib_1.print();
 
     // insert books
@@ -135,7 +151,7 @@ void test_book_insertion() {
     lib_1.insert_book(book_4);
 
     // check values
-    cout << "BOOK OBJECT INSERTION CHECK 2: Should print book 1 (no info), book 2 (Hamlet), book 3 (Maze Runner), book 4 (I'm Number 4)" << endl;
+    cout << "BOOK OBJECT INSERTION CHECK 2: Should print books 1-4 (no info, \"Hamlet\", \"Maze Runner\", \"I'm Number 4\")" << endl;
     lib_1.print();
 }
 
@@ -184,7 +200,7 @@ void test_repeated_insertion() {
     insert_list.push_back(lib_1.insert_book(book_4));
 
     // check values
-    cout << "REPEATED BOOK INSERTION CHECK 1: Should print books 1 to 4" << endl;
+    cout << "REPEATED BOOK INSERTION CHECK 1: Should print books 1-4 (no info, \"Hamlet\", \"Maze Runner\", \"I'm Number 4\")" << endl;
     lib_1.print();
     // check insertions to see which have failed
     cout << "REPEATED BOOK INSERTION CHECK 1 (continued): Should return true for all insertions" << endl;
@@ -197,7 +213,7 @@ void test_repeated_insertion() {
     insert_list.push_back(lib_1.insert_book(book_5));
 
     // check values
-    cout << "REPEATED BOOK INSERTION CHECK 2: Should print books 1 to 5" << endl;
+    cout << "REPEATED BOOK INSERTION CHECK 2: Should print books 1-4 plus book 5 (\"Hunger Games\")" << endl;
     lib_1.print();
     // check insertions to see which have failed
     cout << "REPEATED BOOK INSERTION CHECK 2 (continued): Should return true for insertions 1-4, false for 5-6, true for 7" << endl;
@@ -209,7 +225,7 @@ void test_repeated_insertion() {
     insert_list.push_back(lib_1.insert_book("Catching Fire", "Suzan Collins", "January 4th 2015"));
 
     // check values
-    cout << "REPEATED BOOK INSERTION CHECK 3: Should print books 1 to 5 plus \"Catching fire\"" << endl;
+    cout << "REPEATED BOOK INSERTION CHECK 3: Should print books 1-5 plus \"Catching fire\"" << endl;
     lib_1.print();
     // check insertions to see which have failed
     cout << "REPEATED BOOK INSERTION CHECK 3 (continued): Should return true for insertions 1-4, false for 5-6, true for 7, false for 8, true for 9" << endl;
@@ -241,7 +257,7 @@ void test_book_removal() {
     Library lib_1(book_list);
     
     // check values
-    cout << "BOOK OBJECT REMOVAL CHECK 1: Should print book 1 (no info), book 2 (Hamlet), book 3 (Maze Runner), book 4 (I'm Number 4)" << endl;
+    cout << "BOOK OBJECT REMOVAL CHECK 1: Should print book 1-4 (no info, \"Hamlet\", \"Maze Runner\", \"I'm Number 4\")" << endl;
     lib_1.print();
     
     // remove books
@@ -249,7 +265,7 @@ void test_book_removal() {
     lib_1.remove_book(book_2);
     
     // check values
-    cout << "BOOK OBJECT REMOVAL CHECK 2: Should print book 3 (Maze Runner), book 4 (I'm Number 4)" << endl;
+    cout << "BOOK OBJECT REMOVAL CHECK 2: Should print books 3-4 (\"Maze Runner\", \"I'm Number 4\")" << endl;
     lib_1.print();
 }
 
@@ -304,19 +320,15 @@ void test_nonexistant_removal() {
     // create 1 library
     Library lib_1(book_list);
 
-    // check values
-    cout << "NONEXISTANT BOOK REMOVAL CHECK 1: Should print books 3 to 8" << endl;
-    lib_1.print();
-    
     // remove 2 books in the library
     remove_list.push_back(lib_1.remove_book(book_7));
     remove_list.push_back(lib_1.remove_book(book_8));
 
     // check values
-    cout << "NONEXISTANT BOOK REMOVAL CHECK 2: Should print books 3 to 6" << endl;
+    cout << "NONEXISTANT BOOK REMOVAL CHECK 1: Should print books 3-6 (\"Maze Runner\", \"I'm Number 4\", \"Hunger Games\", \"I, Robot\")" << endl;
     lib_1.print();
     // check removals to see which have failed
-    cout << "NONEXISTANT BOOK REMOVAL CHECK 2 (continued): Should return true for all removals" << endl;
+    cout << "NONEXISTANT BOOK REMOVAL CHECK 1 (continued): Should return true for all removals" << endl;
     check_removal_list(remove_list);
     
     // remove 2 books not in the library
@@ -326,10 +338,10 @@ void test_nonexistant_removal() {
     remove_list.push_back(lib_1.remove_book(book_6));
 
     // check values
-    cout << "NONEXISTANT BOOK REMOVAL CHECK 3: Should print books 3 to 5" << endl;
+    cout << "NONEXISTANT BOOK REMOVAL CHECK 2: Should print books 3-5 (\"Maze Runner\", \"I'm Number 4\", \"Hunger Games\")" << endl;
     lib_1.print();
     // check removals to see which have failed
-    cout << "NONEXISTANT BOOK REMOVAL CHECK 3 (continued): Should return true for removals 1-2, false for 3-4, true for 5" << endl;
+    cout << "NONEXISTANT BOOK REMOVAL CHECK 2 (continued): Should return true for removals 1-2, false for 3-4, true for 5" << endl;
     check_removal_list(remove_list);
     
     // remove a books as a string that is not in the library
@@ -338,10 +350,10 @@ void test_nonexistant_removal() {
     remove_list.push_back(lib_1.remove_book("Maze Runner", "James Dashner", "n/a"));
     
     // check values
-    cout << "NONEXISTANT BOOK REMOVAL CHECK 4: Should print books 4 to 5" << endl;
+    cout << "NONEXISTANT BOOK REMOVAL CHECK 3: Should print books 4-5 (\"I'm Number 4\", \"Hunger Games\")" << endl;
     lib_1.print();
     // check removals to see which have failed
-    cout << "NONEXISTANT BOOK REMOVAL CHECK 4 (continued): Should return true for removals 1-2, false for 3-4, true for 5, false for 6, true for 7" << endl;
+    cout << "NONEXISTANT BOOK REMOVAL CHECK 3 (continued): Should return true for removals 1-2, false for 3-4, true for 5, false for 6, true for 7" << endl;
     check_removal_list(remove_list);
 }
 
