@@ -1,6 +1,6 @@
 //***********************************************************
 // Student Names: Nicolas Palmar and Kevin Wang
-// Student Number: 20883350 and 20886511
+// Student Number:
 //
 // SYDE 121 Lab: Classes, OO Design Assignment: 5
 // Filename: a5_library.hpp
