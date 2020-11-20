@@ -65,10 +65,10 @@ void test_book_constructor() {
     Book book_1;
     Book book_2("Hamlet");
     Book book_3("Maze Runner", "James Dashner");
-    Book book_4("I'm number 4", "Pittacus Lore", "January 4th 2015");
+    Book book_4("I'm Number 4", "Pittacus Lore", "January 4th 2015");
 
     // call book service method to check values
-    cout << "CHECK 1: Should print book 1 (no info), book 2 (hamlet, no author, no dop), book 3 (maze runner, author, no dop), and book 4 (I'm number 4, author, dop)" << endl;
+    cout << "CHECK 1: Should print book 1 (no info), book 2 (Hamlet, no author, no dop), book 3 (Maze Runner, James Dashner, no dop), and book 4 (I'm Number 4, Pittacus Lore, January 4th 2015)" << endl;
     book_1.print();
     book_2.print();
     book_3.print();
@@ -91,9 +91,9 @@ void test_library_constructor() {
     Book book_1;
     Book book_2("Hamlet");
     Book book_3("Maze Runner", "James Dashner");
-    Book book_4("I'm number 4", "Pittacus Lore", "January 4th 2015");
+    Book book_4("I'm Number 4", "Pittacus Lore", "January 4th 2015");
     Book book_5("Hunger Games", "Suzan Collins", "January 4th 2015");
-    Book book_6("I, Robot", "Isaac asimov", "July 7th 2007");
+    Book book_6("I, Robot", "Isaac Asimov", "July 7th 2007");
     Book book_7("The Rule of 3", "Eric Walters", "November 7th 2002");
 
     // make a book vector
@@ -106,7 +106,7 @@ void test_library_constructor() {
     Library lib_3(book_list_2);
 
     // call library service method to check values
-    cout << "CHECK 1: lib_1 -> empty (prints nothing), lib_2 -> prints (book_1-book_4), lib_3 -> prints (book_5 -> book_7) " << endl;
+    cout << "CHECK 1: lib_1 -> empty (prints nothing), lib_2 -> prints (book_1 -> book_4), lib_3 -> prints (book_5 -> book_7) " << endl;
     lib_1.print();
     lib_2.print();
     lib_3.print();
@@ -117,9 +117,9 @@ void test_book_insertion() {
     Book book_1;
     Book book_2("Hamlet");
     Book book_3("Maze Runner", "James Dashner");
-    Book book_4("I'm number 4", "Pittacus Lore", "January 4th 2015");
+    Book book_4("I'm Number 4", "Pittacus Lore", "January 4th 2015");
 
-    // create 1 libraries
+    // create 1 library
     Library lib_1;
 
     // insert books
@@ -127,7 +127,7 @@ void test_book_insertion() {
     lib_1.insert_book(book_2);
 
     // check values
-    cout << "CHECK 1: Should print book 1 (no info) and book 2 (hamlet)" << endl;
+    cout << "BOOK OBJECT INSERTION CHECK 1: Should print book 1 (no info) and book 2 (Hamlet)" << endl;
     lib_1.print();
 
     // insert books
@@ -135,7 +135,7 @@ void test_book_insertion() {
     lib_1.insert_book(book_4);
 
     // check values
-    cout << "CHECK 2: Should print book 1 (no info), book 2 (hamlet), book 3 (maze runner), book 4 (I'm number 4)" << endl;
+    cout << "BOOK OBJECT INSERTION CHECK 2: Should print book 1 (no info), book 2 (Hamlet), book 3 (Maze Runner), book 4 (I'm Number 4)" << endl;
     lib_1.print();
 }
 
@@ -149,14 +149,14 @@ void test_book_string_insertion() {
     lib_1.insert_book("Catching Fire", "Suzan Collins", "January 4th 2015");
 
     // check values
-    cout << "CHECK 1: Should print the elegant universe and catching fire" << endl;
+    cout << "BOOK STRING INSERTION CHECK 1: Should print \"The Elegant Universe\" and \"Catching Fire\"" << endl;
     lib_1.print();
 
     // insert into a different library
     lib_2.insert_book("Eyes of Minds", "James Dashner", "November 3 2009");
     
     // check values
-    cout << "CHECK 2: Should print eyes of minds" << endl;
+    cout << "BOOK STRING INSERTION CHECK 2: Should print \"Eyes of Minds\"" << endl;
     lib_2.print();
 }
 
@@ -168,9 +168,9 @@ void test_repeated_insertion() {
     Book book_1;
     Book book_2("Hamlet");
     Book book_3("Maze Runner", "James Dashner");
-    Book book_4("I'm number 4", "Pittacus Lore", "January 4th 2015");
+    Book book_4("I'm Number 4", "Pittacus Lore", "January 4th 2015");
     Book book_5("Hunger Games", "Suzan Collins", "January 4th 2015");
-    Book book_6("I, Robot", "Isaac asimov", "July 7th 2007");
+    Book book_6("I, Robot", "Isaac Asimov", "July 7th 2007");
     Book book_7("The Rule of 3", "Eric Walters", "November 7th 2002");
     Book book_8("Catching Fire", "Suzan Collins", "January 4th 2015");
 
@@ -184,10 +184,10 @@ void test_repeated_insertion() {
     insert_list.push_back(lib_1.insert_book(book_4));
 
     // check values
-    cout << "CHECK 1: Should print books 1 to 4" << endl;
+    cout << "REPEATED BOOK INSERTION CHECK 1: Should print books 1 to 4" << endl;
     lib_1.print();
     // check insertions to see which have failed
-    cout << "CHECK 1 (continued): Should return true for all insertions" << endl;
+    cout << "REPEATED BOOK INSERTION CHECK 1 (continued): Should return true for all insertions" << endl;
     check_insertion_list(insert_list);
 
     // insert 2 repeated books
@@ -197,22 +197,22 @@ void test_repeated_insertion() {
     insert_list.push_back(lib_1.insert_book(book_5));
 
     // check values
-    cout << "CHECK 2: Should print books 1 to 5" << endl;
+    cout << "REPEATED BOOK INSERTION CHECK 2: Should print books 1 to 5" << endl;
     lib_1.print();
     // check insertions to see which have failed
-    cout << "CHECK 2 (continued): Should return true for insertions 1-4, false for 5-6, true for insertion 7" << endl;
+    cout << "REPEATED BOOK INSERTION CHECK 2 (continued): Should return true for insertions 1-4, false for 5-6, true for 7" << endl;
     check_insertion_list(insert_list);
 
     // insert a repeated book as a string
-    insert_list.push_back(lib_1.insert_book("I'm number 4", "Pittacus Lore", "January 4th 2015"));
+    insert_list.push_back(lib_1.insert_book("I'm Number 4", "Pittacus Lore", "January 4th 2015"));
     // insert an unrepeated book as a string
     insert_list.push_back(lib_1.insert_book("Catching Fire", "Suzan Collins", "January 4th 2015"));
 
     // check values
-    cout << "CHECK 3: Should print books 1 to 5 plus 'Catching fire'" << endl;
+    cout << "REPEATED BOOK INSERTION CHECK 3: Should print books 1 to 5 plus \"Catching fire\"" << endl;
     lib_1.print();
     // check insertions to see which have failed
-    cout << "CHECK 2 (continued): Should return true for insertions 1-4, false for 5-6, true for insertion 7, false for 8, true for 9" << endl;
+    cout << "REPEATED BOOK INSERTION CHECK 3 (continued): Should return true for insertions 1-4, false for 5-6, true for 7, false for 8, true for 9" << endl;
     check_insertion_list(insert_list);
 }
 
@@ -227,57 +227,121 @@ void check_removal_list(vector<bool> remove_list) {
     cout << endl;
 }
 
-void test_removal() {
-    // define an remove list vector
-    vector<bool> remove_list;
+void test_book_removal() {
     // create 4 books with each constructor
     Book book_1;
     Book book_2("Hamlet");
     Book book_3("Maze Runner", "James Dashner");
-    Book book_4("I'm number 4", "Pittacus Lore", "January 4th 2015");
+    Book book_4("I'm Number 4", "Pittacus Lore", "January 4th 2015");
+    
+    // create a book vector
+    vector<Book> book_list = { book_1, book_2, book_3, book_4 };
+    
+    // create 1 library containing the books
+    Library lib_1(book_list);
+    
+    // check values
+    cout << "BOOK OBJECT REMOVAL CHECK 1: Should print book 1 (no info), book 2 (Hamlet), book 3 (Maze Runner), book 4 (I'm Number 4)" << endl;
+    lib_1.print();
+    
+    // remove books
+    lib_1.remove_book(book_1);
+    lib_1.remove_book(book_2);
+    
+    // check values
+    cout << "BOOK OBJECT REMOVAL CHECK 2: Should print book 3 (Maze Runner), book 4 (I'm Number 4)" << endl;
+    lib_1.print();
+}
 
+void test_book_string_removal() {
+    // create 4 books with string values
     Book book_5("Hunger Games", "Suzan Collins", "January 4th 2015");
-    Book book_6("I, Robot", "Isaac asimov", "July 7th 2007");
+    Book book_6("I, Robot", "Isaac Asimov", "July 7th 2007");
     Book book_7("The Rule of 3", "Eric Walters", "November 7th 2002");
-
     Book book_8("Catching Fire", "Suzan Collins", "January 4th 2015");
-
+    
+    // create 2 book vectors
+    vector<Book> book_list1 = { book_5, book_6 };
+    vector<Book> book_list2 = { book_7, book_8 };
+    
     // create 2 libraries
-    Library lib_1;
-
-    // insert a book
-    lib_1.insert_book(book_8);
-    lib_1.insert_book(book_2);
-    lib_1.insert_book(book_5);
-    lib_1.insert_book(book_1);
+    Library lib_1(book_list1);
+    Library lib_2(book_list2);
+    
+    // remove books as strings from the library
+    lib_1.remove_book("Hunger Games", "Suzan Collins", "January 4th 2015");
+    lib_1.remove_book("I, Robot", "Isaac Asimov", "July 7th 2007");
+    
+    // check values
+    cout << "BOOK STRING REMOVAL CHECK 1: Should print nothing" << endl;
+    lib_1.print();
+    cout << "\n";
+    
+    // remove books as string from a different library
+    lib_2.remove_book("The Rule of 3", "Eric Walters", "November 7th 2002");
+    
+    // check values
+    cout << "BOOK STRING REMOVAL CHECK 2: Should print \"Catching Fire\"" << endl;
+    lib_2.print();
+}
+void test_nonexistant_removal() {
+    // define a remove list vector
+    vector<bool> remove_list;
+    
+    // create books
+    Book book_1;
+    Book book_2("Hamlet");
+    Book book_3("Maze Runner", "James Dashner");
+    Book book_4("I'm Number 4", "Pittacus Lore", "January 4th 2015");
+    Book book_5("Hunger Games", "Suzan Collins", "January 4th 2015");
+    Book book_6("I, Robot", "Isaac Asimov", "July 7th 2007");
+    Book book_7("The Rule of 3", "Eric Walters", "November 7th 2002");
+    Book book_8("Catching Fire", "Suzan Collins", "January 4th 2015");
+    
+    // create a book vector
+    vector<Book> book_list = { book_3, book_4, book_5, book_6, book_7, book_8 };
+    
+    // create 1 library
+    Library lib_1(book_list);
 
     // check values
-    cout << "CHECK 1" << endl;
+    cout << "NONEXISTANT BOOK REMOVAL CHECK 1: Should print books 3 to 8" << endl;
     lib_1.print();
-
-    // remove good books
-    remove_list.push_back(lib_1.remove_book(book_2));
-    remove_list.push_back(lib_1.remove_book(book_1));
-
-    // remove book not in library
+    
+    // remove 2 books in the library
     remove_list.push_back(lib_1.remove_book(book_7));
+    remove_list.push_back(lib_1.remove_book(book_8));
 
     // check values
-    cout << "CHECK 2" << endl;
+    cout << "NONEXISTANT BOOK REMOVAL CHECK 2: Should print books 3 to 6" << endl;
     lib_1.print();
-
     // check removals to see which have failed
+    cout << "NONEXISTANT BOOK REMOVAL CHECK 2 (continued): Should return true for all removals" << endl;
     check_removal_list(remove_list);
-
-    // check removals usings strings as parameters
-    remove_list.push_back(lib_1.remove_book("Hunger Games", "Suzan Collins", "January 4th 2015"));
-    remove_list.push_back(lib_1.remove_book("I'm number 4", "Pittacus Lore", "January 4th 2015"));
+    
+    // remove 2 books not in the library
+    remove_list.push_back(lib_1.remove_book(book_1));
+    remove_list.push_back(lib_1.remove_book(book_2));
+    // remove 1 book in the library
+    remove_list.push_back(lib_1.remove_book(book_6));
 
     // check values
-    cout << "CHECK 3" << endl;
+    cout << "NONEXISTANT BOOK REMOVAL CHECK 3: Should print books 3 to 5" << endl;
     lib_1.print();
-
     // check removals to see which have failed
+    cout << "NONEXISTANT BOOK REMOVAL CHECK 3 (continued): Should return true for removals 1-2, false for 3-4, true for 5" << endl;
+    check_removal_list(remove_list);
+    
+    // remove a books as a string that is not in the library
+    remove_list.push_back(lib_1.remove_book("Eyes of Minds", "James Dashner", "November 3 2009"));
+    // remove a book as a string that is in the library
+    remove_list.push_back(lib_1.remove_book("Maze Runner", "James Dashner", "n/a"));
+    
+    // check values
+    cout << "NONEXISTANT BOOK REMOVAL CHECK 4: Should print books 4 to 5" << endl;
+    lib_1.print();
+    // check removals to see which have failed
+    cout << "NONEXISTANT BOOK REMOVAL CHECK 4 (continued): Should return true for removals 1-2, false for 3-4, true for 5, false for 6, true for 7" << endl;
     check_removal_list(remove_list);
 }
 
@@ -288,6 +352,8 @@ int main()
     test_book_insertion();
     test_book_string_insertion();
     test_repeated_insertion();
-    /*test_removal();*/
+    test_book_removal();
+    test_book_string_removal();
+    test_nonexistant_removal();
 }
 
